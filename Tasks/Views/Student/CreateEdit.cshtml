@@ -1,0 +1,41 @@
+﻿@model Student
+
+<div class="mb-3">
+    <input type="hidden" asp-for=Id />
+</div>
+
+<div class="mb-3">
+    <label asp-for=Name></label>
+    <input asp-for=Name />
+    <span asp-validation-for=Name></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for=Age></label>
+    <input asp-for=Age />
+    <span asp-validation-for=Age></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for=Email></label>
+    <input asp-for=Email />
+    <span asp-validation-for=Email></span>
+</div>
+
+@*<div class="mb-3">
+    <label asp-for=DeptId></label>
+    <select asp-items="@ViewBag.depts" asp-for="DeptId"></select>
+    <span asp-validation-for=DeptId></span>
+</div>*@
+<div class="mb-3">
+    <label asp-for=Password></label>
+    <input asp-for=Password />
+    <span asp-validation-for=Password></span>
+</div>
+
+<div class="mb-3">
+    <label asp-for=ConfirmPassword></label>
+    <input asp-for=ConfirmPassword/>
+    <span asp-validation-for=ConfirmPassword></span>
+</div>
+

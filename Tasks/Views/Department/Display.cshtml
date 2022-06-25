@@ -1,0 +1,23 @@
+﻿@model Department
+@{
+    ViewData["Title"] = "Display";
+}
+<a asp-action="Index" class="btn btn-light">Back</a>
+<h2>Department @Model.Name</h2>
+<form method="get">
+    <div class="mb-3">
+        <label asp-for="Id">Id</label>
+        <label asp-for="Id">@Model.Id</label>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Name">Name</label>
+        <label asp-for="Name">@Model.Name</label>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Location">Location</label>
+        <label asp-for="Location">@Model.Location</label>
+    </div>
+    <div class="mb-3">
+        <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-primary">Update</a>
+    </div>
+</form>

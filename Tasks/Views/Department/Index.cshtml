@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Department>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="Create" class="btn btn-success">Create Department</a>
+
+<table style="width:100%" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th colspan=3>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Department d in Model)
+        {
+            <tr>
+                <td>@d.Id</td>
+                <td>@d.Name</td>
+                <td>@d.Location</td>
+                <td><a asp-action="Display" asp-route-id="@d.Id" class="btn btn-primary">Display</a></td>
+                <td><a asp-action="Update" asp-route-id="@d.Id" class="btn btn-info">Update</a></td>
+                <td><a asp-action="Delete" asp-route-id="@d.Id" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

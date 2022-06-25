@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Student>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="Create" class="btn btn-success">Create Student</a>
+
+<table style="width:100%" class="table table-hover">
+    <thead>
+        <tr>
+            @*<th>Id</th>*@
+            <th>Name</th>
+            <th>Age</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th colspan=3>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student s in Model)
+        {
+            <tr asp-action="Display" asp-route-id="@s.Id">
+                @*<td>@s.Id</td>*@
+                <td>@s.Name</td>
+                <td>@s.Age</td>
+@*                <td>@s.Department.Name</td>
+*@                <td>@s.Email</td>
+                <td><a asp-action="Courses" asp-route-id="@s.Id" class="btn btn-light">Courses</a></td>
+                <td><a asp-action="Display" asp-route-id="@s.Id" class="btn btn-primary">Display</a></td>
+                <td><a asp-action="Update" asp-route-id="@s.Id" class="btn btn-info">Update</a></td>
+                <td>
+                    <form asp-route-id="@s.Id" asp-action="Delete" method="post">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

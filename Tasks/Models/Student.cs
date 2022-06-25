@@ -14,11 +14,11 @@ namespace Tasks.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Enter Your Password")]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password, ErrorMessage = "Error in Password")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Password Must Be More Than 3 Digits")]
         public string Password { get; set; }
         [Compare("Password", ErrorMessage = "Vaild To Confirm Pasword")]
-        [DataType(DataType.Password)]
+        //[DataType(DataType.Password)]
         [NotMapped]
         public string ConfirmPassword { get; set; }
 

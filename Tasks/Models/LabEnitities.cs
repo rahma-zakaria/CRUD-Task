@@ -20,8 +20,8 @@ namespace Tasks.Models
             //modelBuilder.ApplyConfiguration(new CustomerMap());
             base.OnModelCreating(modelBuilder);
         }
-        //public DbSet<Student> Student { get; set; }
-        //public DbSet<Department> Department { get; set; }
+        public DbSet<Student> Student { get; set; }
+        public DbSet<Department> Department { get; set; }
 
 
 
