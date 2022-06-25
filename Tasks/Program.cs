@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Tasks.Models;
+using Tasks.Services;
 
 namespace Tasks
 {
@@ -13,10 +14,17 @@ namespace Tasks
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            //builder.Services.AddSqlServer().AddDbContext<LabEnitities>(options =>
-            // options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+
             builder.Services.AddDbContext<LabEnitities>(options =>
               options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+
+            builder.Services.AddScoped(
+              typeof(IRepository<>),
+              typeof(Repository<>)
+              );
+
+            builder.Services.AddScoped<IStudentService, StudentService>();
+            builder.Services.AddScoped<IDepartmentService, DepartmentService>();
 
             var app = builder.Build();
 

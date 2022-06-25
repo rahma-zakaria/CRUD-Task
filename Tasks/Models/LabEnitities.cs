@@ -11,12 +11,17 @@ namespace Tasks.Models
 
         //}
 
-        public LabEnitities(DbContextOptions dbContextOptions) : base(dbContextOptions)
-        {
+        public LabEnitities(DbContextOptions dbContextOptions)
+            : base(dbContextOptions)
+        { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //modelBuilder.ApplyConfiguration(new CustomerMap());
+            base.OnModelCreating(modelBuilder);
         }
-        public DbSet<Student> Student { get; set; }
-        public DbSet<Department> Department { get; set; }
+        //public DbSet<Student> Student { get; set; }
+        //public DbSet<Department> Department { get; set; }
 
 
 

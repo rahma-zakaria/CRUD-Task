@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Tasks.Models;
 
@@ -10,9 +11,10 @@ using Tasks.Models;
 namespace Tasks.Migrations
 {
     [DbContext(typeof(LabEnitities))]
-    partial class LabEnititiesModelSnapshot : ModelSnapshot
+    [Migration("20220625091109_updatemodels")]
+    partial class updatemodels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

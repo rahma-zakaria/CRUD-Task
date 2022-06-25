@@ -4,13 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Tasks.Models
 {
-    public class Student
+    public class Student : BaseEntity
     {
-        public int Id { get; set; }
-        [Required(ErrorMessage = "*")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Name Minumum length 3")]
-        public string Name { get; set; }
-
         [Range(18, 30, ErrorMessage = "Age Range Between 18 and 30")]
         public int Age { get; set; }
 
