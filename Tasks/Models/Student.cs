@@ -10,7 +10,9 @@ namespace Tasks.Models
         public int Age { get; set; }
 
         [RegularExpression(@"[_A-Za-z0-9-.]+@[A-Za-z]+\.[A-Za-z]{2,3}", ErrorMessage = "Invalid Email")]
-        //[Remote("CheckEmail", "Student", AdditionalFields = "Id", ErrorMessage = "Email in DB")]
+        //[Remote("CheckUserName", "Std")]
+        //[Remote(action: "Check", controller: "Student", ErrorMessage = "Email is Alrady Exist")]
+        [Remote("CheckEmail", "Student", AdditionalFields = "Age,Id,Name", ErrorMessage = "Email is Alrady Exist")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Enter Your Password")]
@@ -25,8 +27,8 @@ namespace Tasks.Models
 
         [ForeignKey("Department")]
         public int DeptId { get; set; }
-        public Department Department { get; set; }
+        //public Department Department { get; set; }
 
-        //public virtual Department? Department { get; set; }
+        public virtual Department? Department { get; set; }
     }
 }

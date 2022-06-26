@@ -1,8 +1,9 @@
-﻿@{
+﻿@model Student
+@{
     ViewBag.title = "delete";
 }
 <h1>
-    Are You Sure To Delete Student ?
+    Are You Sure To Delete Student @Model.Name ?
 </h1>
 <form method="post">
     <input type="hidden" value="id" />

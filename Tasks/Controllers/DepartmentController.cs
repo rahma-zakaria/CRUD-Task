@@ -21,7 +21,7 @@ namespace Tasks.Controllers
             {
                 return View(result);
             }
-            return BadRequest("No Records Found");
+            return NotFound();
         }
 
         [HttpGet]

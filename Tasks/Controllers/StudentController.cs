@@ -8,11 +8,12 @@ namespace Tasks.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        //private readonly IStudentService _studentService;
+        private readonly IDepartmentService _departmentService;
 
-        public StudentController(IStudentService studentService)
+        public StudentController(IStudentService studentService, IDepartmentService departmentService)
         {
             _studentService = studentService;
+            _departmentService = departmentService;
         }
 
         [HttpGet]
@@ -23,7 +24,7 @@ namespace Tasks.Controllers
             {
                 return View(result);
             }
-            return BadRequest("No Records Found");
+            return NotFound();
         }
 
         [HttpGet]
@@ -47,9 +48,8 @@ namespace Tasks.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            //ItDbContext iti = new ItDbContext();
-            //SelectList depts = new SelectList(iti.Departments.ToList(), "DeptId", "Name");
-            //ViewBag.Depts = depts;
+            SelectList depts = new SelectList(_departmentService.GetAll().ToList(), "Id", "Name");
+            ViewBag.Depts = depts;
             return View();
         }
         [HttpPost]
@@ -62,22 +62,33 @@ namespace Tasks.Controllers
             }
             else
             {
-                //ItDbContext iti = new ItDbContext();
-                //SelectList depts = new SelectList(iti.Departments.ToList(), "DeptId", "Name");
-                //ViewBag.Depts = depts;
+                SelectList depts = new SelectList(_departmentService.GetAll().ToList(), "Id", "Name");
+                ViewBag.Depts = depts;
                 return View(student);
             }
         }
 
         [HttpGet]
-        public IActionResult Update()
+        public IActionResult Update(int id)
         {
-            //ItDbContext iti = new ItDbContext();
-            //SelectList depts = new SelectList(iti.Departments.ToList(), "DeptId", "Name");
-            //ViewBag.Depts = depts;
-            return View();
+            SelectList depts = new SelectList(_departmentService.GetAll().ToList(), "Id", "Name");
+            ViewBag.Depts = depts;
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var result = _studentService.GetById(id);
+                if (result is not null)
+                {
+                    return View(result);
+                }
+                return NotFound();
+            }
         }
-        [HttpPut(nameof(Update))]
+        [HttpPost]
         public IActionResult Update(Student student)
         {
             if (ModelState.IsValid)
@@ -87,9 +98,8 @@ namespace Tasks.Controllers
             }
             else
             {
-                //ItDbContext iti = new ItDbContext();
-                //SelectList depts = new SelectList(iti.Departments.ToList(), "DeptId", "Name");
-                //ViewBag.Depts = depts;
+                SelectList depts = new SelectList(_departmentService.GetAll().ToList(), "Id", "Name");
+                ViewBag.Depts = depts;
                 return View(student);
             }
         }
@@ -111,12 +121,40 @@ namespace Tasks.Controllers
                 return NotFound();
             }
         }
-        //[HttpDelete]
+
         [ActionName("delete")]
-        public IActionResult ConfirmDelete(int id)
+        [HttpPost]
+        public IActionResult ConfirmDelete(int? id)
         {
-            _studentService.Delete(id);
+            _studentService.Delete(id.Value);
             return RedirectToAction("index", "student");
+        }
+
+        public IActionResult CheckEmail(string Email, int Id = 0, int Age = 0, string Name = "")
+        {
+            //if(Id == 0) { 
+
+            Student? student = _studentService.GetAll()
+            .Where(s => s.Id != Id)
+            .SingleOrDefault(s => s.Email == Email);
+
+            if (student == null)
+            {
+                return Json(true);
+            }
+            return Json(false);
+            //}
+        }
+
+        public IActionResult Check(string Email)
+        {
+            Student? student = _studentService.GetAll()
+            .SingleOrDefault(d => d.Email == Email);
+            if (student == null)
+            {
+                return Json(true);
+            }
+            return Json(false);
         }
 
 

@@ -23,16 +23,12 @@
                 @*<td>@s.Id</td>*@
                 <td>@s.Name</td>
                 <td>@s.Age</td>
-@*                <td>@s.Department.Name</td>
-*@                <td>@s.Email</td>
-                <td><a asp-action="Courses" asp-route-id="@s.Id" class="btn btn-light">Courses</a></td>
+                @*<td>@s.Department.Name</td>*@
+                <td>@s.Email</td>
                 <td><a asp-action="Display" asp-route-id="@s.Id" class="btn btn-primary">Display</a></td>
                 <td><a asp-action="Update" asp-route-id="@s.Id" class="btn btn-info">Update</a></td>
-                <td>
-                    <form asp-route-id="@s.Id" asp-action="Delete" method="post">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
+                <td><a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-danger">Delete</a></td>
+
             </tr>
         }
     </tbody>

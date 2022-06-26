@@ -2,6 +2,10 @@
 @{
     ViewBag.title = "create";
 }
+
+<a asp-action="Index" class="btn btn-light">Back</a>
+<h2>Create</h2>
+
 <div class="container">
     <form method="post">
 
@@ -12,3 +16,8 @@
     </form>
 </div>
 
+@section Scripts
+{
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
