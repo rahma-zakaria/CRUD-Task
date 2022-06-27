@@ -5,37 +5,37 @@
 </div>
 
 <div class="mb-3">
-    <label asp-for=Name></label>
-    <input asp-for=Name />
+    <label asp-for=Name class="form-label"></label>
+    <input asp-for=Name class="form-control"/>
     <span asp-validation-for=Name></span>
 </div>
 
 <div class="mb-3">
-    <label asp-for=Age></label>
-    <input asp-for=Age />
+    <label asp-for=Age class="form-label"></label>
+    <input asp-for=Age class="form-control"/>
     <span asp-validation-for=Age></span>
 </div>
 
 <div class="mb-3">
-    <label asp-for=Email></label>
-    <input asp-for=Email />
+    <label asp-for=Email class="form-label"></label>
+    <input asp-for=Email class="form-control"/>
     <span asp-validation-for=Email></span>
 </div>
 
 <div class="mb-3">
-    <label asp-for=DeptId></label>
-    <select asp-items="@ViewBag.depts" asp-for="DeptId"></select>
-    <span asp-validation-for=DeptId></span>
+    <label asp-for=DeptId class="form-label"></label>
+    <select asp-items="@ViewBag.depts" asp-for="DeptId" class="form-select"></select>
+    <span asp-validation-for=DeptId ></span>
 </div>
 <div class="mb-3">
-    <label asp-for=Password></label>
-    <input asp-for=Password />
+    <label asp-for=Password class="form-label"></label>
+    <input asp-for=Password class="form-control"/>
     <span asp-validation-for=Password></span>
 </div>
 
 <div class="mb-3">
-    <label asp-for=ConfirmPassword></label>
-    <input asp-for=ConfirmPassword/>
+    <label asp-for=ConfirmPassword class="form-label"></label>
+    <input asp-for=ConfirmPassword class="form-control"/>
     <span asp-validation-for=ConfirmPassword></span>
 </div>
 

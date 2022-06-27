@@ -10,8 +10,6 @@ namespace Tasks.Models
         public int Age { get; set; }
 
         [RegularExpression(@"[_A-Za-z0-9-.]+@[A-Za-z]+\.[A-Za-z]{2,3}", ErrorMessage = "Invalid Email")]
-        //[Remote("CheckUserName", "Std")]
-        //[Remote(action: "Check", controller: "Student", ErrorMessage = "Email is Alrady Exist")]
         [Remote("CheckEmail", "Student", AdditionalFields = "Age,Id,Name", ErrorMessage = "Email is Alrady Exist")]
         public string Email { get; set; }
 
@@ -24,11 +22,9 @@ namespace Tasks.Models
         [NotMapped]
         public string ConfirmPassword { get; set; }
 
-
+        [Display(Name = "Department")]
         [ForeignKey("Department")]
         public int DeptId { get; set; }
-        //public Department Department { get; set; }
-
         public virtual Department? Department { get; set; }
     }
 }

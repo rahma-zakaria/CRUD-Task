@@ -3,21 +3,22 @@
     ViewBag.title = "create";
 }
 
-<a asp-action="Index" class="btn btn-light">Back</a>
-<h2>Create</h2>
+<a asp-action="Index" class="btn btn-light mb-3">Back</a>
+<h2>Create New Student</h2>
 
 <div class="container">
     <form method="post">
-
-
-        <partial name="CreateEdit" />
-
-        <input type="submit" class="btn btn-success" />
+        <div class="container mt-3">
+            <partial name="CreateEdit" />
+            <div class="mb-3">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
     </form>
 </div>
 
 @section Scripts
 {
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }

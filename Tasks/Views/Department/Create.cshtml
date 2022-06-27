@@ -3,27 +3,20 @@
     ViewData["Title"] = "Create";
 }
 
-<a asp-action="Index" class="btn btn-light">Back</a>
+<a asp-action="Index" class="btn btn-light mb-3">Back</a>
 
-<h2>Create</h2>
+<h2>Create Department</h2>
 <form method="post">
-    <div class="mb-3">
-        <label asp-for="Name">Name</label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-    </div>
-    <div class="mb-3">
-        <label asp-for="Location">Location</label>
-        <input asp-for="Location" />
-        <span asp-validation-for="Location"></span>
-    </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-success">Submit</button>
+    <div class="container mt-3">
+        <partial name="CreateEdit" />
+        <div class="mb-3">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </div>
 </form>
 
 @section Scripts
 {
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }

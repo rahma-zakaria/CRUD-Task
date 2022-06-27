@@ -108,9 +108,8 @@ namespace Tasks.Controllers
                 }
                 return NotFound();
             }
-            //return View();
         }
-        //[HttpDelete]
+
         [ActionName("delete")]
         [HttpPost]
         public IActionResult ConfirmDelete(int? id)

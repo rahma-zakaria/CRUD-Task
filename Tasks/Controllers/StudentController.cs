@@ -132,8 +132,6 @@ namespace Tasks.Controllers
 
         public IActionResult CheckEmail(string Email, int Id = 0, int Age = 0, string Name = "")
         {
-            //if(Id == 0) { 
-
             Student? student = _studentService.GetAll()
             .Where(s => s.Id != Id)
             .SingleOrDefault(s => s.Email == Email);
@@ -143,7 +141,6 @@ namespace Tasks.Controllers
                 return Json(true);
             }
             return Json(false);
-            //}
         }
 
         public IActionResult Check(string Email)
